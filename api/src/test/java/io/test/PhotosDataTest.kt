@@ -1,7 +1,6 @@
 package io.test
 
 import com.example.api.PhotosDataClient
-import com.example.api.services.PhotosApi
 import kotlinx.coroutines.runBlocking
 import org.junit.Assert.assertNotNull
 
@@ -14,9 +13,19 @@ class PhotosDataTest {
     @Test
  fun `get PhotosData`(){
         runBlocking {
-            val req = resp.getImagesList()
+            val req = resp.getImages()
             assertNotNull(req.body()?.photos)
         }
 
     }
+
+    @Test
+    fun `get Photos`(){
+        runBlocking {
+            val req = resp.getImagesList()
+            assertNotNull(req.body()?.page)
+        }
+
+    }
+
 }

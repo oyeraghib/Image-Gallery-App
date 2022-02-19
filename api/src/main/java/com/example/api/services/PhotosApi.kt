@@ -10,8 +10,12 @@ import retrofit2.http.GET
 interface PhotosApi {
 
     @GET("rest/")
-    suspend fun getImagesList(
+    suspend fun getImages(
     ): Response<PhotosData>
+//
+//    @GET("rest/")
+//    suspend fun getImagesList(
+//    ): Response<Photos>
 }
 
 
