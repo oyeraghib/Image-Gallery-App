@@ -15,7 +15,7 @@ class PhotosDataTest {
  fun `get PhotosData`(){
         runBlocking {
             val req = resp.getImagesList()
-            assertNotNull(req.body()?.stat)
+            assertNotNull(req.body()?.photos)
         }
 
     }

@@ -10,4 +10,10 @@
       android:name="com.example.imagegalleryapp.ui.HomeFragment"
       android:label="fragment_home"
       tools:layout="@layout/fragment_home" />
+
+  <fragment
+      android:id="@+id/aboutFragment"
+      android:name="com.example.imagegalleryapp.ui.AboutFragment"
+      android:label="fragment_home"
+      tools:layout="@layout/fragment_about" />
 </navigation>
