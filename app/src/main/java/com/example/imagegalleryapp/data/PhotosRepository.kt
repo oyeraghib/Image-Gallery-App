@@ -2,7 +2,6 @@ package com.example.imagegalleryapp.data
 
 import com.example.api.PhotosDataClient
 import com.example.api.models.Photo
-import com.example.api.models.Photos
 
 class PhotosRepository {
 

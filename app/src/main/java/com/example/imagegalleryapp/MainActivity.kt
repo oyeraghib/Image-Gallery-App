@@ -2,8 +2,6 @@ package com.example.imagegalleryapp
 
 import android.os.Bundle
 import android.view.Menu
-import android.view.MenuItem
-import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.navigation.findNavController
@@ -32,19 +30,19 @@ class MainActivity : AppCompatActivity() {
         )
 
         setupActionBarWithNavController(navController, appBarConfiguration)
-navigationView.setupWithNavController(navController)
+        navigationView.setupWithNavController(navController)
 
 
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-menuInflater.inflate(R.menu.menu, menu)
+        menuInflater.inflate(R.menu.menu, menu)
         return true
     }
 
     override fun onSupportNavigateUp(): Boolean {
-        val navController =findNavController(R.id.fragmentContainerView)
-return navController.navigateUp(appBarConfiguration) ||super.onSupportNavigateUp()
+        val navController = findNavController(R.id.fragmentContainerView)
+        return navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
 
     }
 }
