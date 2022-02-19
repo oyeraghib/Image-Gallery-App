@@ -1,20 +1,43 @@
 package com.example.imagegalleryapp.ui
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.example.imagegalleryapp.R
+import android.widget.Toast
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
+import androidx.lifecycle.Observer
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.imagegalleryapp.databinding.FragmentHomeBinding
 
 class HomeFragment : Fragment() {
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_home, container, false)
+    private lateinit var _binding: FragmentHomeBinding
+    private val homeViewModel: HomeViewModel by viewModels()
+
+    private var homeRecyclerAdapter = HomeRecyclerAdapter()
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+
+        homeViewModel.fetchPhotosList()
     }
 
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        _binding = FragmentHomeBinding.inflate(inflater, container, false)
+        _binding.rvPhotos.layoutManager = LinearLayoutManager(requireContext())
+        _binding.rvPhotos.adapter = homeRecyclerAdapter
+
+        homeViewModel.photos.observe(viewLifecycleOwner, Observer {
+            Toast.makeText(requireContext(), "Total item received ${it.size}", Toast.LENGTH_SHORT)
+                .show()
+            homeRecyclerAdapter.submitList(it)
+        })
+        return _binding.root
+    }
 }

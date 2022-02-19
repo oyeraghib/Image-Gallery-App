@@ -38,6 +38,7 @@ class HomeRecyclerAdapter() :
         val photo = getItem(position)
         Glide.with(holder.itemView.context)
             .load(photo.urlS)
+            .centerCrop()
             .into(holder.binding.ivPhoto)
 
     }

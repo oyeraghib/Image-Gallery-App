@@ -18,14 +18,4 @@ class PhotosDataTest {
         }
 
     }
-
-    @Test
-    fun `get Photos`(){
-        runBlocking {
-            val req = resp.getImagesList()
-            assertNotNull(req.body()?.page)
-        }
-
-    }
-
 }
