@@ -1,4 +1,4 @@
-package com.example.imagegalleryapp.ui
+package com.example.imagegalleryapp.ui.home
 
 import android.annotation.SuppressLint
 import android.view.LayoutInflater
@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.example.api.models.Photo
+import com.example.imagegalleryapp.models.Photo
 import com.example.imagegalleryapp.databinding.ListItemPhotosBinding
 
 class HomeRecyclerAdapter() :

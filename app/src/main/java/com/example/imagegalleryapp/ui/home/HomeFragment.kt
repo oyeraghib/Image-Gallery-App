@@ -1,4 +1,4 @@
-package com.example.imagegalleryapp.ui
+package com.example.imagegalleryapp.ui.home
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -10,10 +10,12 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.imagegalleryapp.databinding.FragmentHomeBinding
+import com.example.imagegalleryapp.viewmodel.HomeViewModel
 
 class HomeFragment : Fragment() {
 
     private lateinit var _binding: FragmentHomeBinding
+
     private val homeViewModel: HomeViewModel by viewModels()
 
     private var homeRecyclerAdapter = HomeRecyclerAdapter()

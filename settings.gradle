@@ -8,4 +8,3 @@ dependencyResolutionManagement {
 }
 rootProject.name = "ImageGalleryApp"
 include ':app'
-include ':api'

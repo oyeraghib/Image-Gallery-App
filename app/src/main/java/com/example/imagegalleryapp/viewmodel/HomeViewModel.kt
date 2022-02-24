@@ -1,12 +1,14 @@
-package com.example.imagegalleryapp.ui
+package com.example.imagegalleryapp.viewmodel
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.api.models.Photo
-import com.example.imagegalleryapp.data.PhotosRepository
+import com.example.imagegalleryapp.models.Photo
+import com.example.imagegalleryapp.repository.PhotosRepository
 import kotlinx.coroutines.launch
+
+
 
 class HomeViewModel : ViewModel() {
 

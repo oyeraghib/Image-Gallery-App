@@ -1,6 +1,6 @@
-package io.test
+package com.example.imagegalleryapp
 
-import com.example.api.PhotosDataClient
+import com.example.imagegalleryapp.Constants.api
 import kotlinx.coroutines.runBlocking
 import org.junit.Assert.assertNotNull
 
@@ -8,7 +8,7 @@ import org.junit.Test
 
 class PhotosDataTest {
 
-    val resp = PhotosDataClient.api
+    val resp = Constants.api
 
     @Test
     fun `get PhotosData`() {
