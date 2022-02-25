@@ -1,14 +1,15 @@
 package com.example.imagegalleryapp
 
 import com.example.imagegalleryapp.Constants.api
+import com.example.imagegalleryapp.di.AppModule
 import kotlinx.coroutines.runBlocking
 import org.junit.Assert.assertNotNull
 
 import org.junit.Test
+import retrofit2.Retrofit
 
 class PhotosDataTest {
 
-    val resp = Constants.api
 
     @Test
     fun `get PhotosData`() {

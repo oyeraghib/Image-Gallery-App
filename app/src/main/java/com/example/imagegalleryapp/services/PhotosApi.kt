@@ -22,9 +22,18 @@ interface PhotosApi {
         @Query("format") format: String? = "json",
         @Query("nojsoncallback") nojsoncallback: Any? = 1,
         @Query("extras") extras: String? = "url_s"
-//        ): Response<List<Photo>>
-    ): List<PhotosData>
+    ): Response<PhotosData>
 
+
+    @GET("rest/")
+    suspend fun searchImage(
+        @Query("method") method: String? = "flickr.photos.getRecent",
+        @Query("api_key") apiKey: String? = "${API_KEY}",
+        @Query("format") format: String? = "json",
+        @Query("nojsoncallback") nojsoncallback: Any? = 1,
+        @Query("extras") extras: String? = "url_s",
+        @Query("text") text: String?
+        ): Response<PhotosData>
 }
 
 
