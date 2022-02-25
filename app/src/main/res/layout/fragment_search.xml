@@ -1,9 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.search.SearchFragment"
     >
 
-</FrameLayout>
+  <com.google.android.material.textfield.TextInputEditText
+      android:text="TextView"
+      android:layout_width="0dp"
+      android:layout_height="wrap_content"
+      android:id="@+id/tvSearch"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toTopOf="parent"
+      android:layout_marginTop="24dp"
+      app:layout_constraintEnd_toStartOf="@+id/ivSearchIcon"
+      app:layout_constraintHorizontal_bias="0.049"
+      android:layout_marginEnd="16dp"
+      android:layout_marginStart="16dp"
+      />
+  <ImageView
+      android:src="@drawable/ic_search"
+      android:layout_width="40dp"
+      android:layout_height="40dp"
+      android:id="@+id/ivSearchIcon"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintTop_toTopOf="parent"
+      android:layout_marginTop="24dp"
+      android:layout_marginEnd="8dp"
+      android:layout_marginStart="16dp"
+      app:layout_constraintStart_toEndOf="@+id/tvSearch"
+      />
+  <ImageView
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      tools:src="@tools:sample/avatars"
+      android:id="@+id/imageView2"
+      app:layout_constraintTop_toBottomOf="@+id/tvSearch"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      android:layout_marginTop="200dp"
+      />
+</androidx.constraintlayout.widget.ConstraintLayout>

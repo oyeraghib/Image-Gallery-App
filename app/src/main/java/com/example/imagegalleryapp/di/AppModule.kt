@@ -1,10 +1,7 @@
 package com.example.imagegalleryapp.di
 
-import com.example.imagegalleryapp.Constants
-import com.example.imagegalleryapp.models.Photos
+
 import com.example.imagegalleryapp.services.PhotosApi
-import com.squareup.moshi.Moshi
-import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -35,8 +32,6 @@ object AppModule {
         return MoshiConverterFactory.create()
     }
 
-
-
     @Provides
     @Singleton
     fun providesRetrofit(
@@ -46,7 +41,7 @@ object AppModule {
 
         return Retrofit
             .Builder()
-            .baseUrl(Constants.BASE_URL)
+            .baseUrl(PhotosApi.BASE_URL)
             .client(okHttpClient)
             .addConverterFactory(moshiConverterFactory)
             .build()
