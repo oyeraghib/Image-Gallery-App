@@ -1,14 +1,15 @@
 package com.example.imagegalleryapp.ui.search
 
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
+import android.widget.SearchView
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.imagegalleryapp.R
 import com.example.imagegalleryapp.databinding.FragmentSearchBinding
 import dagger.hilt.android.AndroidEntryPoint
+
 
 
 @AndroidEntryPoint
@@ -29,6 +30,8 @@ class SearchFragment : Fragment() {
         _binding = FragmentSearchBinding.inflate(inflater, container, false)
         _binding.rvSearch.layoutManager = LinearLayoutManager(requireContext())
 
+
+
         _binding.rvSearch.adapter = searchPhotoAdapter.withLoadStateHeaderAndFooter(
             header = SearchPhotosLoadStateAdapter {searchPhotoAdapter.retry()},
             footer = SearchPhotosLoadStateAdapter {searchPhotoAdapter.retry()},
@@ -41,8 +44,41 @@ class SearchFragment : Fragment() {
             searchPhotoAdapter.submitData(viewLifecycleOwner.lifecycle, it)
         }
 
+//        setHasOptionsMenu(true)
+
         return _binding.root
 
     }
 
+    /*
+    Code for implementing Search
+     */
+
+//    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+//        super.onCreateOptionsMenu(menu, inflater)
+//
+//        inflater.inflate(R.menu.menu_search, menu)
+//
+//        val searchItem = menu.findItem(R.id.action_search)
+//        val searchView = searchItem.actionView as SearchView
+//
+//        searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener{
+//            override fun onQueryTextSubmit(query: String?): Boolean {
+//
+//                if(query != null) {
+//                    _binding.rvSearch.scrollToPosition(0)
+//                    searchViewModel.searchPhotos(query)
+//                    searchView.clearFocus()
+//                }
+//                return true
+//            }
+//
+//            override fun onQueryTextChange(newText: String?): Boolean {
+//                return true
+//            }
+//
+//        }
+//
+//        )
+//    }
 }

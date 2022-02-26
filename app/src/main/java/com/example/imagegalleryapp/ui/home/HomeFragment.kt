@@ -29,8 +29,8 @@ class HomeFragment : Fragment() {
         _binding.rvPhotos.layoutManager = LinearLayoutManager(requireContext())
 
         _binding.rvPhotos.adapter = homeRecyclerAdapter.withLoadStateHeaderAndFooter(
-            header = SearchPhotosLoadStateAdapter {homeRecyclerAdapter.retry()},
-            footer = SearchPhotosLoadStateAdapter {homeRecyclerAdapter.retry()},
+            header = SearchPhotosLoadStateAdapter { homeRecyclerAdapter.retry() },
+            footer = SearchPhotosLoadStateAdapter { homeRecyclerAdapter.retry() },
         )
 
         homeViewModel.photos.observe(viewLifecycleOwner) {
