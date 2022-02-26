@@ -5,11 +5,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.search.SearchFragment"
-    xmlns:tools="http://schemas.android.com/tools"
     >
 
   <com.google.android.material.textfield.TextInputEditText
-      android:text="TextView"
+      android:hint="Search"
       android:layout_width="0dp"
       android:layout_height="wrap_content"
       android:id="@+id/editTextSearch"
@@ -79,6 +78,8 @@
       app:layout_constraintStart_toStartOf="@+id/rvSearch"
       app:layout_constraintEnd_toEndOf="parent"
       app:layout_constraintTop_toTopOf="parent"
+      android:visibility="gone"
+      tools:visibility="visible"
       />
 
   <TextView
@@ -90,6 +91,9 @@
       app:layout_constraintBottom_toTopOf="@+id/progressBarSearch"
       app:layout_constraintTop_toTopOf="@+id/rvSearch"
       app:layout_constraintVertical_bias="0.96"
+      tools:ignore="MissingConstraints"
+      android:visibility="gone"
+      tools:visibility="visible"
       />
 
 

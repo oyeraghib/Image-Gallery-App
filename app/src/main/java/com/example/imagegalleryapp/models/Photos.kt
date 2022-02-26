@@ -17,3 +17,4 @@ data class Photos(
     @Json(name = "total")
     val total: Int?
 )
+

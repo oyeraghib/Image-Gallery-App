@@ -60,7 +60,11 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
 
     // ViewModel
-    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version"
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.4.1"
+    implementation "androidx.fragment:fragment-ktx:1.4.1"
+
+
+
     // LiveData
     implementation "androidx.lifecycle:lifecycle-livedata-ktx:$lifecycle_version"
 
@@ -79,7 +83,7 @@ dependencies {
     implementation "com.google.dagger:hilt-android:2.38.1"
     kapt "com.google.dagger:hilt-android-compiler:2.38.1"
     implementation "androidx.hilt:hilt-lifecycle-viewmodel:$hiltAndroidXVersion"
-    kapt "android.hilt:hilt-compiler:$hiltAndroidXVersion"
+//    kapt "android.hilt:hilt-compiler:$hiltAndroidXVersion"
 
     //Retrofit
     implementation "com.squareup.retrofit2:retrofit:$retrofit_version"

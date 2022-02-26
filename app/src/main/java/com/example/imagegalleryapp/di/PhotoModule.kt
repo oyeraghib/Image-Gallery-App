@@ -1,7 +1,7 @@
 package com.example.imagegalleryapp.di
 
 
-import com.example.imagegalleryapp.services.PhotosApi
+import com.example.imagegalleryapp.api.PhotosApi
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -15,11 +15,11 @@ import javax.inject.Singleton
 
 @Module
 @InstallIn(SingletonComponent::class)
-object AppModule {
+object PhotoModule {
 
     @Provides
     @Singleton
-    fun providesHttpClient(): OkHttpClient{
+    fun providesHttpClient(): OkHttpClient {
         return OkHttpClient().newBuilder()
             .readTimeout(2, TimeUnit.MINUTES)
             .connectTimeout(2, TimeUnit.MINUTES)
@@ -28,7 +28,7 @@ object AppModule {
 
     @Provides
     @Singleton
-        fun providesConverterFactory(): MoshiConverterFactory {
+    fun providesConverterFactory(): MoshiConverterFactory {
         return MoshiConverterFactory.create()
     }
 
@@ -37,20 +37,18 @@ object AppModule {
     fun providesRetrofit(
         okHttpClient: OkHttpClient,
         moshiConverterFactory: MoshiConverterFactory
-    ): Retrofit{
+    ): Retrofit =
 
-        return Retrofit
+        Retrofit
             .Builder()
             .baseUrl(PhotosApi.BASE_URL)
             .client(okHttpClient)
             .addConverterFactory(moshiConverterFactory)
             .build()
-    }
 
     @Provides
     @Singleton
-    fun getApiService(retrofit: Retrofit): PhotosApi {
-return retrofit.create(PhotosApi::class.java)
-    }
+    fun providesPhotosApi(retrofit: Retrofit): PhotosApi =
+        retrofit.create(PhotosApi::class.java)
 
 }
