@@ -21,13 +21,13 @@ class PhotosRepository @Inject constructor(val photosApi: PhotosApi) {
         ).liveData
 
 
-//    fun getImageResults() =
-//        Pager(
-//            config = PagingConfig(
-//                pageSize = 20,
-//                maxSize = 100,
-//                enablePlaceholders = false
-//            ),
-//            pagingSourceFactory = { HomePagingSource(photosApi)}
-//        ).flow
+    fun getImageResults() =
+        Pager(
+            config = PagingConfig(
+                pageSize = 20,
+                maxSize = 100,
+                enablePlaceholders = false
+            ),
+            pagingSourceFactory = { HomePagingSource(photosApi)}
+        ).liveData
 }

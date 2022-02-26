@@ -13,15 +13,17 @@ import javax.inject.Inject
 class SearchViewModel @Inject constructor(val photosRepository: PhotosRepository) :
     ViewModel() {
 
-    private val currentQuery = MutableLiveData(DEFAULT_QUERY)
+//    private val currentQuery = MutableLiveData(DEFAULT_QUERY)
+//
+//    val photos = currentQuery.switchMap {
+//        photosRepository.getSearchResults(it).cachedIn(viewModelScope)
+//    }
+//
+//    fun searchPhotos(query: String) {
+//        currentQuery.value = query
+//    }
 
-    val photos = currentQuery.switchMap {
-        photosRepository.getSearchResults(it).cachedIn(viewModelScope)
-    }
-
-    fun searchPhotos(query: String) {
-        currentQuery.value = query
-    }
+    val photos = photosRepository.getSearchResults("cat").cachedIn(viewModelScope)
 
     companion object {
         private const val DEFAULT_QUERY = "cat"

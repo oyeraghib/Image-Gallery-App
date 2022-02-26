@@ -5,20 +5,17 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.imagegalleryapp.databinding.FragmentHomeBinding
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class HomeFragment : Fragment() {
 
-//    private lateinit var _binding: FragmentHomeBinding
-//    private val homeViewModel: HomeViewModel by viewModels()
-//
-//    @Inject
-//    lateinit var photosAdapter: PhotosAdapter
-//
-//    override fun onCreate(savedInstanceState: Bundle?) {
-//        super.onCreate(savedInstanceState)
-//        homeViewModel.getAllPhotos()
+    private val homeViewModel: HomeViewModel by viewModels()
+    private lateinit var _binding: FragmentHomeBinding
+    private var homeRecyclerAdapter = HomeRecyclerAdapter()
 
 
     override fun onCreateView(
@@ -26,33 +23,16 @@ class HomeFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return null
 
+        _binding = FragmentHomeBinding.inflate(inflater, container, false)
+        _binding.rvPhotos.layoutManager = LinearLayoutManager(requireContext())
+
+        _binding.rvPhotos.adapter = homeRecyclerAdapter
+
+        homeViewModel.photos.observe(viewLifecycleOwner) {
+            homeRecyclerAdapter.submitData(viewLifecycleOwner.lifecycle, it)
+        }
+        return _binding.root
     }
 }
-//        _binding = FragmentHomeBinding.inflate(inflater, container, false)
-//        initRecyclerView()
-//
-//        lifecycleScope.launchWhenCreated {
-//            homeViewModel.getAllPhotos().collect { response ->
-//                _binding.apply {
-//                    rvPhotos.isVisible = true
-//                    progressBar.isVisible = false
-//                }
-//                photosAdapter.submitData(response)
-//            }
-//        }
-//        return _binding.root
 
-//    private fun initRecyclerView() {
-//        _binding.apply {
-//            rvPhotos.apply {
-//                setHasFixedSize(true)
-//                layoutManager = LinearLayoutManager(requireContext())
-//                _binding.rvPhotos.adapter = photosAdapter.withLoadStateHeaderAndFooter(
-//                    header = LoadingStateAdapter{photosAdapter.retry()},
-//                    footer = LoadingStateAdapter{photosAdapter.retry()}
-//                )
-//            }
-//        }
-//    }

@@ -18,7 +18,7 @@ class HomePagingSource(
         val position = params.key ?: STARTING_PAGE_INDEX
 
         return try {
-            val response = photosApi.getImages()
+            val response = photosApi.getImages(page = position, perPage = params.loadSize)
             val photos = response.photos?.photo
 
             LoadResult.Page(
