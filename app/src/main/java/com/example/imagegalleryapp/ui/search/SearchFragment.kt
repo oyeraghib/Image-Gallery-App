@@ -29,7 +29,12 @@ class SearchFragment : Fragment() {
         _binding = FragmentSearchBinding.inflate(inflater, container, false)
         _binding.rvSearch.layoutManager = LinearLayoutManager(requireContext())
 
-        _binding.rvSearch.adapter = searchPhotoAdapter
+        _binding.rvSearch.adapter = searchPhotoAdapter.withLoadStateHeaderAndFooter(
+            header = SearchPhotosLoadStateAdapter {searchPhotoAdapter.retry()},
+            footer = SearchPhotosLoadStateAdapter {searchPhotoAdapter.retry()},
+
+
+        )
 
 
         searchViewModel.photos.observe(viewLifecycleOwner) {
