@@ -1,6 +1,5 @@
 package com.example.imagegalleryapp.ui.search
 
-import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.switchMap
@@ -11,14 +10,14 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
 @HiltViewModel
-class SearchViewModel @Inject constructor(val photosRepository: PhotosRepository):
+class SearchViewModel @Inject constructor(val photosRepository: PhotosRepository) :
     ViewModel() {
 
     private val currentQuery = MutableLiveData(DEFAULT_QUERY)
 
-        val photos = currentQuery.switchMap {
-            photosRepository.getSearchResults(it).cachedIn(viewModelScope)
-        }
+    val photos = currentQuery.switchMap {
+        photosRepository.getSearchResults(it).cachedIn(viewModelScope)
+    }
 
     fun searchPhotos(query: String) {
         currentQuery.value = query

@@ -1,6 +1,8 @@
 package com.example.imagegalleryapp.api
 
 import com.example.imagegalleryapp.models.PhotosResponse
+import retrofit2.Call
+import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Query
 
@@ -32,7 +34,7 @@ interface PhotosApi {
         @Query("format") format: String = "json",
         @Query("nojsoncallback") nojsoncallback: Int = 1,
         @Query("extras") extras: String = "url_s",
-        @Query("text") query: String = "cat"
+        @Query("text") query: String
         ): PhotosResponse
 }
 

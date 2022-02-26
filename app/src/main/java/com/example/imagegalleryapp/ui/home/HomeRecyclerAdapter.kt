@@ -1,15 +1,15 @@
 package com.example.imagegalleryapp.ui.home
-//
-//import android.annotation.SuppressLint
-//import android.view.LayoutInflater
-//import android.view.ViewGroup
-//import androidx.recyclerview.widget.DiffUtil
-//import androidx.recyclerview.widget.ListAdapter
-//import androidx.recyclerview.widget.RecyclerView
-//import com.bumptech.glide.Glide
-//import com.example.imagegalleryapp.models.Photo
-//import com.example.imagegalleryapp.databinding.ListItemPhotosBinding
-//
+
+import android.annotation.SuppressLint
+import android.view.LayoutInflater
+import android.view.ViewGroup
+import androidx.recyclerview.widget.DiffUtil
+import androidx.recyclerview.widget.ListAdapter
+import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
+import com.example.imagegalleryapp.models.Photo
+import com.example.imagegalleryapp.databinding.ListItemPhotosBinding
+
 //class HomeRecyclerAdapter() :
 //    ListAdapter<Photo, HomeRecyclerAdapter.PhotoViewHolder>(PhotoDiffCallback()) {
 //
@@ -18,12 +18,12 @@ package com.example.imagegalleryapp.ui.home
 //
 //    class PhotoDiffCallback : DiffUtil.ItemCallback<Photo>() {
 //        override fun areItemsTheSame(oldItem: Photo, newItem: Photo): Boolean {
-//            return oldItem == newItem
+//            return oldItem.id == newItem.id
 //        }
 //
 //        @SuppressLint("DiffUtilEquals")
 //        override fun areContentsTheSame(oldItem: Photo, newItem: Photo): Boolean {
-//            return oldItem === newItem
+//            return oldItem == newItem
 //        }
 //    }
 //
