@@ -7,6 +7,8 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
+import com.example.imagegalleryapp.R
 import com.example.imagegalleryapp.models.Photo
 import com.example.imagegalleryapp.databinding.ListItemPhotosBinding
 
@@ -21,6 +23,8 @@ class HomeRecyclerAdapter() :
                     Glide.with(itemView)
                         .load(photo.urlS)
                         .centerCrop()
+                        .transition(DrawableTransitionOptions.withCrossFade())
+                        .error(R.drawable.ic_error)
                         .into(ivPhoto)
                 }
             }

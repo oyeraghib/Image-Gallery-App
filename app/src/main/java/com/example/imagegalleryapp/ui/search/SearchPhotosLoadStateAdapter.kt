@@ -24,8 +24,8 @@ class SearchPhotosLoadStateAdapter(private val retry: () -> Unit) :
             fun bind(loadState: LoadState){
                 binding.apply {
                     progressBarSearch.isVisible = loadState is LoadState.Loading
-                    btnRetry.isVisible = loadState is LoadState.Loading
-                    tvError.isVisible = loadState is LoadState.Loading
+                    btnRetry.isVisible = loadState !is LoadState.Loading
+                    tvError.isVisible = loadState !is LoadState.Loading
 
                 }
             }
